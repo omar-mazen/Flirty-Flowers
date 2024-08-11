@@ -1,0 +1,320 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@100;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@100;700&display=swap");
+
+:root {
+  --primary-background-color: #f5f0ec;
+  --primary-text: #222;
+  --secondary-text: #464646;
+  --s-text: clamp(1rem, 2vw, 2rem);
+  --l-text: clamp(1rem, 3vw, 4rem);
+  --xl-text: clamp(3.2rem, 10vw, 12rem);
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  color: var(--primary-text);
+  background-color: var(--primary-background-color);
+  user-select: none;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  cursor: none;
+  overflow-x: hidden;
+}
+
+.loader-overlay {
+  position: fixed;
+  background-color: var(--primary-text);
+  width: 100%;
+  height: 100%;
+  color: #dbd8d6;
+  transition: "all 0.25s ease-in-out";
+  .loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    h1 {
+      font-size: var(--l-text);
+      text-transform: uppercase;
+      font-family: "Bai Jamjuree", sans-serif;
+      font-weight: 600;
+    }
+
+    h2 {
+      font-size: var(--l-text);
+      text-transform: uppercase;
+      font-family: "Bodoni Moda", serif;
+      font-style: italic;
+      margin-top: 10px;
+    }
+  }
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.custom-cursor {
+  height: 2rem;
+  width: 2rem;
+  display: inline-block;
+  border-radius: 50%;
+  mix-blend-mode: difference;
+  position: fixed;
+  top: -100%;
+  left: -100%;
+  transform: translate(-50%, -50%);
+  background-color: #f5f0ec;
+  z-index: 999;
+}
+
+.container {
+  overflow: hidden;
+}
+
+.landing-page {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100dvh;
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: var(--secondary-text);
+    font-family: "Syncopate", sans-serif;
+    font-size: var(--l-text);
+    font-weight: 600;
+
+    padding: 1rem 2rem;
+
+    div {
+      padding: 5px;
+    }
+  }
+
+  .header {
+    align-self: center;
+    font-size: var(--xl-text);
+    font-family: "Bai Jamjuree", sans-serif;
+    font-weight: 600;
+    div {
+      overflow: hidden;
+    }
+    p {
+      margin: 0;
+    }
+  }
+}
+
+.featured {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  align-items: center;
+  padding: 0 2rem;
+
+  div:first-of-type span {
+    display: block;
+    text-align: left;
+    font-weight: 500;
+    font-family: "Poppins", sans-serif;
+  }
+
+  div:nth-of-type(2) {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: flex-end;
+    span {
+      flex: 1;
+      rotate: -90deg;
+      transform-origin: center;
+      margin: 5px 0;
+      font-weight: 500;
+      font-family: "Poppins", sans-serif;
+    }
+  }
+
+  img {
+    object-fit: contain;
+    object-position: top;
+    width: 100%;
+  }
+}
+
+.about {
+  text-align: left;
+  padding: 1rem 2rem;
+  position: relative;
+
+  h2 {
+    color: var(--secondary-text);
+    font-size: var(--s-text);
+    font-family: "Syncopate", sans-serif;
+    font-weight: 600;
+  }
+
+  p {
+    font-size: clamp(2.2rem, 4.5vw, 6rem);
+    font-weight: 400;
+    font-family: "Poppins", sans-serif;
+  }
+}
+
+.gallery-wrap {
+  height: 100dvh;
+  background-color: #d53f41;
+  position: relative;
+  .gallery {
+    height: 80dvh;
+    width: 400%;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .gallery-counter {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    position: absolute;
+    z-index: 1;
+    top: 10%;
+    left: 100px;
+
+    mix-blend-mode: difference;
+    line-height: 16px;
+    color: #dbd8d6;
+    font-family: Bai Jamjuree;
+    font-weight: 600;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+
+    .divider {
+      display: inline-block;
+      height: 2px;
+      width: 80px;
+      background-color: #dbd8d6;
+    }
+  }
+
+  .item-wraper {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .gallery-item {
+    position: relative;
+    width: 100vw;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+
+    div {
+      grid-column: 1;
+      grid-row: 1;
+    }
+    div.img {
+      position: relative;
+      width: 60%;
+      height: 70vh;
+      border-radius: 20px;
+      transition: all ease-in-out 2s 1s;
+    }
+    div.img.onScreen {
+      position: relative;
+      width: 70%;
+      height: 80vh;
+      border-radius: 20px;
+    }
+    .text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transform: translate(-20%, 20%);
+    }
+    h2,
+    h3,
+    h4 {
+      text-align: left;
+      margin: 0;
+    }
+    h2 {
+      font-size: clamp(1rem, 5vw, 10rem);
+      font-family: "Bai Jamjuree";
+      font-weight: 600;
+    }
+    h3 {
+      font-size: clamp(1.5rem, 4vw, 7rem);
+      font-family: "Bodoni Moda";
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-stroke: 2px #dbd8d6;
+      mark {
+        color: transparent;
+      }
+    }
+    h4 {
+      font-size: clamp(1rem, 2vw, 4rem);
+      font-family: "Bai Jamjuree";
+      font-weight: 400;
+    }
+    mark {
+      padding: 0 5px;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+footer {
+  padding: 1rem 2rem 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  h2 {
+    color: var(--secondary-text);
+    font-size: var(--s-text);
+    font-family: "Syncopate", sans-serif;
+    font-weight: 600;
+  }
+  > div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  div div {
+    overflow: hidden;
+  }
+
+  p {
+    margin: 0;
+    color: var(--primary-text);
+    font-weight: 600;
+    font-size: var(--xl-text);
+    font-family: "Bodoni Moda", serif;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-counter {
+    top: 15% !important;
+    left: 2% !important;
+  }
+}
+@media (max-width: 480px) {
+  nav {
+    padding: 10px !important;
+  }
+}
