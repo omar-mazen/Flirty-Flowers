@@ -33,7 +33,7 @@ export default function About() {
       });
       gsap.fromTo(
         split.lines,
-        { opacity: 0, yPercent: 100 },
+        { yPercent: 100 },
         {
           yPercent: 0,
           opacity: 1,

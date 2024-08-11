@@ -34,23 +34,20 @@ export default function Gallery() {
   const [currImg, setCurrntImg] = useState(1);
 
   useGSAP(() => {
-    const ctx = gsap.context(() => {
-      let sections = gsap.utils.toArray(".gallery-item");
-      gsap.to(sections, {
-        ease: "none",
-        xPercent: -100 * 3,
-        duration: 0.2,
-        scrollTrigger: {
-          scrub: 1,
-          trigger: ".gallery-wrap",
-          pin: true,
-          snap: 1 / 3,
-          start: "50% 50%",
-          end: () => "+=" + document.querySelector(".gallery-item").offsetWidth,
-        },
-      });
+    let sections = gsap.utils.toArray(".gallery-item");
+    gsap.to(sections, {
+      ease: "none",
+      xPercent: -100 * 3,
+      duration: 0.2,
+      scrollTrigger: {
+        scrub: 1,
+        trigger: ".gallery-wrap",
+        pin: true,
+        snap: 1 / 3,
+        start: "50% 50%",
+        end: () => "+=" + document.querySelector(".gallery-item").offsetWidth,
+      },
     });
-    return () => ctx.revert();
   });
   return (
     <section className="gallery-wrap">

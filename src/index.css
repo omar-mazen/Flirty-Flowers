@@ -158,6 +158,8 @@ body {
   }
 
   p {
+    will-change: opacity;
+    opacity: 0;
     font-size: clamp(2.2rem, 4.5vw, 6rem);
     font-weight: 400;
     font-family: "Poppins", sans-serif;
@@ -202,7 +204,7 @@ body {
   }
 
   .item-wraper {
-    height: 100vh;
+    height: 100dvh;
     width: 100vw;
     display: flex;
     align-items: center;
@@ -223,14 +225,14 @@ body {
     div.img {
       position: relative;
       width: 60%;
-      height: 70vh;
+      height: 70dvh;
       border-radius: 20px;
       transition: all ease-in-out 2s 1s;
     }
     div.img.onScreen {
       position: relative;
       width: 70%;
-      height: 80vh;
+      height: 80dvh;
       border-radius: 20px;
     }
     .text {
@@ -275,7 +277,7 @@ body {
 
 footer {
   padding: 1rem 2rem 0;
-  height: 100vh;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
