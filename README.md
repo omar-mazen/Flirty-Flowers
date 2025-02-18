@@ -1,4 +1,3 @@
-````markdown
 # Flirty Flowers
 
 Flirty Flowers is a modern and elegant landing page that showcases beautiful floral designs. The page is built using React and styled with custom CSS. The animations are powered by GSAP, providing smooth transitions and interactions as the user scrolls through the different sections.
@@ -47,7 +46,6 @@ A live demo of the project can be found [here](#).
    ```bash
    git clone https://github.com/your-username/flirty-flowers.git
    ```
-````
 
 2. Navigate to the project directory:
 
