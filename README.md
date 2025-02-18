@@ -136,12 +136,3 @@ If you'd like to contribute to this project, please follow these steps:
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ```
-
-### Notes:
-
-- Replace `your-username` with your actual GitHub username.
-- Update the live demo link with the correct URL if you're hosting it somewhere.
-- Make sure the `LICENSE` file is included if you're planning to use a specific license like MIT.
-
-This README should be placed in the root of your project directory and committed to your repository. It provides a clear guide to anyone who wants to use, explore, or contribute to your project.
-```
