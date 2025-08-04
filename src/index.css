@@ -320,3 +320,7 @@ footer {
     padding: 10px !important;
   }
 }
+.about-line {
+  display: block;
+  overflow: hidden;
+}
