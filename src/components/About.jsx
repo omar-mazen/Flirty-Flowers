@@ -13,45 +13,44 @@ export default function About() {
   useEffect(() => {
     if (isOnScreen) setIsReavel(isOnScreen);
   }, [isOnScreen]);
-  useGSAP(
-  () => {
-    // ScrollTrigger animation for label
+  useGSAP(() => {
+  gsap.fromTo(
+    "#about-label",
+    { opacity: 0 },
+    {
+      opacity: 1,
+      duration: 1,
+      scrollTrigger: {
+        trigger: "#about-label",
+      },
+    }
+  );
+
+  if (isReavel) {
+    const split = new SplitType("#about-para", {
+      types: "lines",
+      lineClass: "about-line",
+      absolute: false,
+    });
+
+    // Ensure the lines are visible before animating
+    gsap.set(split.lines, { opacity: 1 });
+
     gsap.fromTo(
-      "#about-label",
-      { opacity: 0 },
+      split.lines,
+      { yPercent: 100, opacity: 0 },
       {
+        yPercent: 0,
         opacity: 1,
-        duration: 1,
-        scrollTrigger: {
-          trigger: "#about-label",
-        },
+        duration: 2,
+        stagger: 0.1,
+        ease: "power4.inOut",
+        onComplete: () => split.revert(),
       }
     );
+  }
+}, [isReavel]);
 
-    if (isReavel) {
-      requestAnimationFrame(() => {
-        const split = new SplitType("#about-para", {
-          types: "lines",
-          lineClass: "about-line",
-          absolute: false,
-        });
-        gsap.fromTo(
-          split.lines,
-          { yPercent: 100 },
-          {
-            yPercent: 0,
-            opacity: 1,
-            duration: 2,
-            stagger: 0.1,
-            ease: "power4.inOut",
-            onComplete: () => split.revert(),
-          }
-        );
-      });
-    }
-  },
-  { dependencies: [isReavel] }
-);
 
   return (
     <section className="about">
