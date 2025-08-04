@@ -44,7 +44,6 @@ export default function About() {
         }
       );
     }
-    ScrollTrigger.refresh();
   }, [isReavel]);
 
   return (
