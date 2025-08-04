@@ -13,43 +13,31 @@ export default function About() {
   useEffect(() => {
     if (isOnScreen) setIsReavel(isOnScreen);
   }, [isOnScreen]);
-  useGSAP(() => {
+useGSAP(() => {
+  if (!isReavel) return;
+
+  const split = new SplitType("#about-para", {
+    types: "lines",
+    lineClass: "about-line",
+    absolute: false,
+  });
+
+  gsap.set(split.lines, { opacity: 1 });
+
   gsap.fromTo(
-    "#about-label",
-    { opacity: 0 },
+    split.lines,
+    { y: 30, opacity: 0 },
     {
+      y: 0,
       opacity: 1,
-      duration: 1,
-      scrollTrigger: {
-        trigger: "#about-label",
-      },
+      duration: 1.2,
+      stagger: 0.1,
+      ease: "power2.out",
+      onComplete: () => split.revert(), // Optional
     }
   );
-
-  if (isReavel) {
-    const split = new SplitType("#about-para", {
-      types: "lines",
-      lineClass: "about-line",
-      absolute: false,
-    });
-
-    // Ensure the lines are visible before animating
-    gsap.set(split.lines, { opacity: 1 });
-
-    gsap.fromTo(
-      split.lines,
-      { yPercent: 100, opacity: 0 },
-      {
-        yPercent: 0,
-        opacity: 1,
-        duration: 2,
-        stagger: 0.1,
-        ease: "power4.inOut",
-        onComplete: () => split.revert(),
-      }
-    );
-  }
 }, [isReavel]);
+
 
 
   return (
