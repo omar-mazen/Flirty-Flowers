@@ -13,7 +13,9 @@ export default function About() {
   useEffect(() => {
     if (isOnScreen) setIsReavel(isOnScreen);
   }, [isOnScreen]);
-  useGSAP(() => {
+  useGSAP(
+  () => {
+    // ScrollTrigger animation for label
     gsap.fromTo(
       "#about-label",
       { opacity: 0 },
@@ -25,26 +27,31 @@ export default function About() {
         },
       }
     );
+
     if (isReavel) {
-      const split = new SplitType("#about-para", {
-        types: "lines",
-        lineClass: "about-line",
-        absolute: false,
+      requestAnimationFrame(() => {
+        const split = new SplitType("#about-para", {
+          types: "lines",
+          lineClass: "about-line",
+          absolute: false,
+        });
+        gsap.fromTo(
+          split.lines,
+          { yPercent: 100 },
+          {
+            yPercent: 0,
+            opacity: 1,
+            duration: 2,
+            stagger: 0.1,
+            ease: "power4.inOut",
+            onComplete: () => split.revert(),
+          }
+        );
       });
-      gsap.fromTo(
-        split.lines,
-        { yPercent: 100 },
-        {
-          yPercent: 0,
-          opacity: 1,
-          duration: 2,
-          stagger: 0.1,
-          ease: "power4.inOut",
-          onComplete: () => split.revert(),
-        }
-      );
     }
-  }, [isReavel]);
+  },
+  { dependencies: [isReavel] }
+);
 
   return (
     <section className="about">
